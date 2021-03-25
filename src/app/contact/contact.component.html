@@ -1,0 +1,71 @@
+<div fxLayout="row" [style.margin-left]="'5px'" [style.margin-right]="'20px'">
+    
+    <div class="mat-elevation-z8" fxLayout="row" *ngIf="contacts.data?.length > 0">
+      <div fxLayout="row" [style.margin-bottom]="'4px'">
+        <mat-toolbar>
+          <div fxLayout="row"  style="width: 100%;display:inline-flex;justify-content: space-between;">
+            <span>Contact List</span>
+            <button (click)="openContactDialog('add',null)"  mat-raised-button color="primary">Add Contact</button>
+          </div>
+          </mat-toolbar>
+    </div>
+        <table mat-table [dataSource]="contacts" class="mat-elevation-z8">
+           <!-- First Name Column -->
+            <ng-container matColumnDef="firstName">
+              <th mat-header-cell *matHeaderCellDef>First Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+            </ng-container>
+              <!-- Last Name Column -->
+              <ng-container matColumnDef="lastName">
+                <th mat-header-cell *matHeaderCellDef>Last Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+              </ng-container>
+          
+            <!-- email Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell  *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+              <!-- Contact Number Column -->
+              <ng-container matColumnDef="contactNumber">
+                <th mat-header-cell *matHeaderCellDef> Contact Number </th>
+                <td mat-cell  *matCellDef="let element"> {{element.contactNumber}} </td>
+              </ng-container>
+          
+            <!-- gender Column -->
+            <ng-container matColumnDef="gender">
+              <th mat-header-cell *matHeaderCellDef> Gender </th>
+              <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+            </ng-container>
+  <!-- Status Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.status ? 'Active' : 'Inactive'}} </td>
+  </ng-container>
+
+            
+
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button (click)="openContactDialog('edit',element)" [style.margin-right]="'8px'" mat-button>
+                      <img height="20px" width="20px" src="./assets/user/edit.png" alt="Cinque Terre"> 
+                      </button>
+                      <button (click)="removeContact(element.index)" mat-button>
+                        <mat-icon>delete_outline</mat-icon>
+                      </button>
+
+                     </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row [class.make-selected]="row.status" *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        
+          <mat-paginator #paginator
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+    
+</div>

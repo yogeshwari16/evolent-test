@@ -1,0 +1,57 @@
+[
+  {
+      "index":"0",
+    "firstName": "sew",
+    "lastName": "joen",
+    "email": "sew@fake.com",
+    "contactNumber":"9876854321",
+    "gender": "Male",
+    "address": "471 Dun new york",
+    "dateofbirth": "05/04/1980",
+    "status": true
+  },
+  {
+      "index":"1",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john@fake.com",
+    "contactNumber":"987654921",
+    "gender": "Female",
+    "address": "471 Dun new york",
+    "dateofbirth": "05/04/1980",
+    "status": false
+  },
+  {
+      "index":"2",
+    "firstName": "Rose",
+    "lastName": "Smith",
+    "email": "rose@fake.com",
+    "contactNumber":"987654521",
+    "gender": "Female",
+    "address": "471 Dun new york",
+    "dateofbirth": "05/04/1980",
+    "status": false
+  },
+  {
+      "index":"3",
+    "firstName": "Droid",
+    "lastName": "Crew",
+    "email": "crew@fake.com",
+    "contactNumber":"987656321",
+    "gender": "Male",
+    "address": "471 Dun new york",
+    "dateofbirth": "05/04/1980",
+    "status": false
+  },
+  {
+      "index":"4",
+    "firstName": "Deo",
+    "lastName": "Rosa",
+    "email": "rosa@fake.com",
+    "contactNumber":"987654521",
+    "gender": "Male",
+    "address": "471 Dun new york",
+    "dateofbirth": "05/04/1980",
+    "status": false
+  }
+]

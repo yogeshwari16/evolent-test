@@ -1,0 +1,106 @@
+<div>
+  <div class="add-title">
+    <h2 class="primary">{{isEdit == 'edit' ? 'Edit Contact' : 'Add Contact'}}</h2>
+  </div>
+  <div>
+    <form [formGroup]="contactForm" (change)="formChanged()">
+      <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input matInput placeholder="First Name"  formControlName="firstName" required>
+              <mat-error *ngIf="contactForm.controls.firstName.hasError('required')">
+                Please enter first name
+              </mat-error>
+              <mat-error *ngIf="contactForm.controls.firstName.hasError('pattern')">
+                Please enter valid first name
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input matInput placeholder="Last Name"  formControlName="lastName" required>
+              <mat-error *ngIf="contactForm.controls.lastName.hasError('required')">
+                Please enter last name
+              </mat-error>
+              <mat-error *ngIf="contactForm.controls.lastName.hasError('pattern')">
+                Please enter valid last name
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+       
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email address" formControlName="email" required>
+              <mat-error *ngIf="contactForm.controls.email.hasError('required')">
+                Please enter email id
+              </mat-error>
+              <mat-error *ngIf="contactForm.controls.email.hasError('email')">
+                Please enter valid email id
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Contact Number" formControlName="contactNumber" required>
+              <mat-error *ngIf="contactForm.controls.contactNumber.hasError('required')">
+                Please enter contact number
+              </mat-error>
+              <mat-error *ngIf="contactForm.controls.contactNumber.hasError('pattern')">
+                Please enter valid contact number
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input matInput formControlName="dateofbirth" [matDatepicker]="picker1" placeholder="Date of birth">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+       
+      
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <textarea matInput placeholder="Address" formControlName="address"></textarea>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-radio-group class="gender" formControlName="gender">
+              <div style="color:grey;">Gender</div>
+              <mat-radio-button  color="primary" style="padding:4px 4px 0px 0px;" value="1">Male</mat-radio-button>
+              <mat-radio-button color="primary" style="padding:4px 0px 0px 24px;" value="2">Female</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-radio-group class="gender" formControlName="status">
+              <div style="color:grey;">Status</div>
+              <mat-radio-button  color="primary" style="padding:4px 4px 0px 0px;" value="1">Active</mat-radio-button>
+              <mat-radio-button color="primary" style="padding:4px 0px 0px 24px;" value="2">InActive</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div class="btn-sec">
+        <button mat-raised-button type="submit" color="primary" class="Update-btn" (click)="onaddCus()">{{isEdit == 'edit' ? 'Update' : 'Save'}}</button>
+        <button mat-raised-button type="button" class="Discard-btn" (click)="closeDialog()">Cancel</button>
+      </div>
+
+    </form>
+  </div>
+</div>
